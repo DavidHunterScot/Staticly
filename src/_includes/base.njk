@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% if title %}{{ title }} - {% endif %}Staticly</title>
+
+        <link rel="stylesheet" type="text/css" href="https://w3css.staticly.ict.rocks/4.15/w3.css">
+        <link rel="stylesheet" type="text/css" href="https://w3css.staticly.ict.rocks/w3-colors-metro.css">
+        <link rel="stylesheet" type="text/css" href="https://w3css.staticly.ict.rocks/w3-colors-camo.css">
+        <link rel="stylesheet" type="text/css" href="https://webfonts.staticly.ict.rocks/poppins/poppins.css">
+
+        {% if stylesheets %}
+            {% for stylesheet in stylesheets %}
+                <link rel="stylesheet" type="text/css" href="{{ stylesheet }}">
+            {% endfor %}
+        {% endif %}
+
+        <style type="text/css">
+            :root
+            {
+                --color-html-bracket: #808080;
+                --color-html-tag: #4A9CB3;
+                --color-html-attr: #68CDFE;
+                --color-html-equals: #D4D4D4;
+                --color-html-string: #CE9178;
+                --color-html-text: #ffffff;
+            }
+
+            h1, h2, h3, h4, h5, h6, p
+            {
+                font-family: "Poppins", sans-serif;
+            }
+        </style>
+    </head>
+
+    <body class="w3-camo-black">
+        <header class="w3-black w3-border-bottom w3-border-amber">
+            <div class="w3-auto">
+                <div class="w3-row">
+                    <div class="w3-left">
+                        <h1><b><a href="/" class="w3-button w3-hover-none w3-hover-text-gray" style="color: var( --color-html-tag );"><span style="color: var( --color-html-bracket );">&lt;</span>Staticly<span style="color: var( --color-html-bracket );">&gt;</span></a></b></h1>
+                    </div>
+
+                    <div class="w3-right">
+                        <nav class="w3-bar w3-padding-24 w3-large">
+                            <a href="/" class="w3-bar-item w3-button w3-hover-none w3-hover-text-gray w3-text-gray">Home</a>
+                            <a href="/w3css" class="w3-bar-item w3-button w3-hover-none w3-hover-text-gray w3-text-gray"><b>W3</b><span class="w3-text-green">&bullet;</span>CSS</a>
+                            <a href="/webfonts" class="w3-bar-item w3-button w3-hover-none w3-hover-text-gray w3-text-gray"><i>Web<b>Fonts</b></i></a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        {{ content | safe }}
+
+        <footer class="w3-black w3-text-gray w3-center w3-border-top w3-border-amber w3-small w3-padding-16">
+            <div class="w3-auto w3-container">
+                <p>Copyright &copy; <a href="https://davidhunter.scot" target="_blank">David Hunter</a>.</p>
+            </div>
+        </footer>
+    </body>
+</html>
